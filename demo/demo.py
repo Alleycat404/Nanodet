@@ -18,18 +18,12 @@ video_ext = ["mp4", "mov", "avi", "mkv"]
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "demo", default="image", help="demo type, eg. image, video and webcam"
-    )
-    parser.add_argument("--config", help="model config file path")
-    parser.add_argument("--model", help="model file path")
-    parser.add_argument("--path", default="./demo", help="path to images or video")
+    parser.add_argument("--demo", default="image", help="demo type, eg. image, video and webcam")
+    parser.add_argument("--config", default="../config/nanodet-m.yml", help="model config file path")
+    parser.add_argument("--model", default="../workspace/nanodet_m/model_best/nanodet_model_best.pth", help="model file path")
+    parser.add_argument("--path", default="../dataset/val_set/JPEGImages/13.jpg", help="path to images or video")
     parser.add_argument("--camid", type=int, default=0, help="webcam demo camera id")
-    parser.add_argument(
-        "--save_result",
-        action="store_true",
-        help="whether to save the inference result of image/video",
-    )
+    parser.add_argument("--save_result", default=True, action="store_true", help="whether to save the inference result of image/video")
     args = parser.parse_args()
     return args
 

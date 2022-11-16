@@ -1,4 +1,3 @@
-# Copyright 2021 RangiLyu.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -35,11 +34,9 @@ from nanodet.util import (
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--task", type=str, default="val", help="task to run, test or val"
-    )
-    parser.add_argument("--config", type=str, help="model config file(.yml) path")
-    parser.add_argument("--model", type=str, help="ckeckpoint file(.ckpt) path")
+    parser.add_argument("--task", type=str, default="val", help="task to run, test or val"    )
+    parser.add_argument("--config", default="config/nanodet-m.yml", type=str, help="model config file(.yml) path")
+    parser.add_argument("--model", default="workspace/nanodet_m/model_best/model_best.ckpt", type=str, help="ckeckpoint file(.ckpt) path")
     args = parser.parse_args()
     return args
 
