@@ -34,7 +34,7 @@ from nanodet.util import (
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--task", type=str, default="val", help="task to run, test or val"    )
+    parser.add_argument("--task", type=str, default="test", help="task to run, test or val")
     parser.add_argument("--config", default="config/nanodet-m.yml", type=str, help="model config file(.yml) path")
     parser.add_argument("--model", default="workspace/nanodet_m/model_best/model_best.ckpt", type=str, help="ckeckpoint file(.ckpt) path")
     args = parser.parse_args()

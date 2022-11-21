@@ -42,8 +42,8 @@ model:
 data:
   train:
     name: CocoDataset
-    img_path: dataset/train_set
-    ann_path: dataset/train_set/annotations.json
+    img_path: CocoDataset/train
+    ann_path: CocoDataset/annotations/train.json
     input_size: [500,1270] #[w,h]
     keep_ratio: True
     pipeline:
@@ -60,8 +60,8 @@ data:
       normalize: [[103.53, 116.28, 123.675], [57.375, 57.12, 58.395]]
   val:
     name: CocoDataset
-    img_path: dataset/val_set
-    ann_path: dataset/val_set/annotations.json
+    img_path: CocoDataset/val
+    ann_path: CocoDataset/annotations/val.json
     input_size: [500,1270] #[w,h]
     keep_ratio: True
     pipeline:
@@ -75,24 +75,24 @@ schedule:
 #  load_model: YOUR_MODEL_PATH
   optimizer:
     name: SGD
-    lr: 0.14
+    lr: 0.01
     momentum: 0.9
     weight_decay: 0.0001
   warmup:
     name: linear
     steps: 300
     ratio: 0.1
-  total_epochs: 30
+  total_epochs: 500
   lr_schedule:
     name: MultiStepLR
     milestones: [40,55,60,65]
     gamma: 0.1
-  val_intervals: 1
+  val_intervals: 5
 evaluator:
   name: CocoDetectionEvaluator
   save_key: mAP
 
 log:
-  interval: 1
+  interval: 2
 
 class_names: ['1']
